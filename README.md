@@ -55,19 +55,19 @@ Used KDE plot and joint plot to explore data
 ### Models
 
 **Model 1**
-Used selected features identified in repo.
-R^ 0.527, however multiple variables had negative R^
-Residual graph was good
+- Used selected features identified in repo.
+- R^ 0.527, however multiple variables had negative R^
+- Residual graph was good
 
 **Model 2**
-Used fewer variable in features (kept bathrooms, sqft living, sqft living15 and high grade)
-R^ 0.413
-Residual graph was good
+- Used fewer variable in features (kept bathrooms, sqft living, sqft living15 and high grade)
+- R^ 0.413
+- Residual graph was good
 
 **Model 3**
-Selected features included all variables with positive R^
-R^ 0.524
-Residual graph was good
+- Selected features included all variables with positive R^
+- R^ 0.524
+- Residual graph was good
 
 ### Conclusions
 
