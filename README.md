@@ -1,66 +1,97 @@
 # Phase 2 Project
 
-Another module down--you're almost half way there!
-
-![awesome](https://raw.githubusercontent.com/learn-co-curriculum/dsc-phase-2-project-campus/master/halfway-there.gif)
-
-All that remains in Phase 2 is to put our newfound data science skills to use with a large project! This project should take 20 to 30 hours to complete.
+**Author**: [Nat Berryman](https://github.com/natberr)
 
 ## Project Overview
 
-For this project, you will use regression modeling to analyze house sales in a northwestern county.
-
-### The Data
-
-This project uses the King County House Sales dataset, which can be found in  `kc_house_data.csv` in the data folder in this repo. The description of the column names can be found in `column_names.md` in the same folder. As with most real world data sets, the column names are not perfectly described, so you'll have to do some research or use your best judgment if you have questions about what the data means.
-
-It is up to you to decide what data from this dataset to use and how to use it. If you are feeling overwhelmed or behind, we recommend you ignore some or all of the following features:
-
-* date
-* view
-* sqft_above
-* sqft_basement
-* yr_renovated
-* zipcode
-* lat
-* long
-* sqft_living15
-* sqft_lot15
+The purpose of this regression model is to predict the house prices in King County by analysing the King County House Sales dataset.
 
 ### Business Problem
 
-It is up to you to define a stakeholder and business problem appropriate to this dataset.
+How can we predict the house price sales in King County?
 
-If you are struggling to define a stakeholder, we recommend you complete a project for a real estate agency that helps homeowners buy and/or sell homes. A business problem you could focus on for this stakeholder is the need to provide advice to homeowners about how home renovations might increase the estimated value of their homes, and by what amount.
+In order to solve this problem, I intended to answer the below questions:
+1. Does location impact sale price?
+2. Does the size of the house impact sale price?
+3. Does quality of the house impact sale price?
 
-## Deliverables
+### The Data
 
-There are three deliverables for this project:
+This project uses the King County House Sales dataset, which can be found in  `kc_house_data.csv` in the data folder in this repo. The description of the column names can be found in `column_names.md` in the same folder.
 
-* A **GitHub repository**
-* A **Jupyter Notebook**
-* A **non-technical presentation**
+**Data Cleaning**
+- Dropped unnecessary data
+- Replaced or removed null values
+- Narrowed data to only included houses with <6 bedrooms
+- Using the empirical formula I removed outliers
+- Addressed multicollinearity
+- Split data set between continuous and categorical data
+- Binned Grade into Low, Average and High
 
-Review the "Project Submission & Review" page in the "Milestones Instructions" topic for instructions on creating and submitting your deliverables. Refer to the rubric associated with this assignment for specifications describing high-quality deliverables.
 
-### Key Points
+### Exploratory Data Analysis
 
-* **Your deliverables should explicitly address each step of the data science process.** Refer to [the Data Science Process lesson](https://github.com/learn-co-curriculum/dsc-data-science-processes) from Topic 19 for more information about process models you can use.
+**Key Features include:**
+Bathrooms
+Square Foot living space
+Grade
+Latitude
+Square Foot Above
+Square Foot Living 15 (neighbors)
 
-* **Your Jupyter Notebook should demonstrate an iterative approach to modeling.** This means that you begin with a basic model, evaluate it, and then provide justification for and proceed to a new model. After you finish refining your models, you should provide 1-3 paragraphs discussing your final model - this should include interpreting at least 3 important parameter estimates or statistics.
+**Notes:** 
+Zip code excluded as data-type is a string
+Latitude correlates with price more than Longitude
 
-* **Based on the results of your models, your notebook and presentation should discuss at least two features that have strong relationships with housing prices.**
+I then created price vs zip code graph to explore price distribution across zip codes and then plotted to a heatmap.
+Using these visualization I created  a new variable – **km_from_cbd**
 
-## Getting Started
+Used mean normalization to standardise the data
+Sqft living, sqft lot, sqft above, sqft living 15, sqft lot 15 appear good
+Km from CBD is negatively skewed
 
-Start on this project by forking and cloning [this project repository](https://github.com/learn-co-curriculum/dsc-phase-2-project) to get a local copy of the dataset.
+Used KDE plot and joint plot to explore data
 
-We recommend structuring your project repository similar to the structure in [the Phase 1 Project Template](https://github.com/learn-co-curriculum/dsc-project-template). You can do this either by creating a new fork of that repository to work in or by building a new repository from scratch that mimics that structure.
+### Models
 
-## Project Submission and Review
+**Model 1**
+Used selected features identified in repo.
+R^ 0.527, however multiple variables had negative R^
+Residual graph was good
 
-Review the "Project Submission & Review" page in the "Milestones Instructions" topic to learn how to submit your project and how it will be reviewed. Your project must pass review for you to progress to the next Phase.
+**Model 2**
+Used fewer variable in features (kept bathrooms, sqft living, sqft living15 and high grade)
+R^ 0.413
+Residual graph was good
 
-## Summary
+**Model 3**
+Selected features included all variables with positive R^
+R^ 0.524
+Residual graph was good
 
-This project will give you a valuable opportunity to develop your data science skills using real-world data. The end-of-phase projects are a critical part of the program because they give you a chance to bring together all the skills you've learned, apply them to realistic projects for a business stakeholder, practice communication skills, and get feedback to help you improve. You've got this!
+### Conclusions
+
+I determined Model 3 was the must accurate model by using all features with postive R^ and removing variables with negative R^.
+Selected features all statistically significant with p-value <0.05
+sqft living15 coef – 0.2791
+sqft living coef – 0.3956
+distance from CBD coef - 0.3434
+Bathrooms coef – 0.0645
+high grade rating coef– 0.4590
+These Coef figures mean for unit increase in any one of these variables there was in increase in price by ~0.3 units.
+
+### For More Information
+
+Please review the full analysis in [my Jupyter Notebook](http://localhost:8888/notebooks/Desktop/AcademyXI/ProjectTwo/dsc-phase-2-project/Project_Two/kc_house_price_regression_modelling.ipynb) or my [presentation pack](http://localhost:8888/files/Desktop/AcademyXI/ProjectTwo/dsc-phase-2-project/Project_Two/Regression%20Modelling%20Presentation.pdf).
+
+For any additional questions, please contact **Nat Berryman** - nathaniel.berryman@gmail.com
+
+### Repository Structure
+
+```
+├── images
+├── data
+├── regression modelling presentation.pdf
+├── kc_house_price_regression_modelling.ipynb
+└── README.md
+```
