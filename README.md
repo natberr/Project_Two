@@ -71,14 +71,14 @@ Used KDE plot and joint plot to explore data
 
 ### Conclusions
 
-I determined Model 3 was the must accurate model by using all features with postive R^ and removing variables with negative R^.
-Selected features all statistically significant with p-value <0.05
-sqft living15 coef – 0.2791
-sqft living coef – 0.3956
-distance from CBD coef - 0.3434
-Bathrooms coef – 0.0645
-high grade rating coef– 0.4590
-These Coef figures mean for unit increase in any one of these variables there was in increase in price by ~0.3 units.
+- I determined Model 3 was the must accurate model by using all features with postive R^ and removing variables with negative R^.
+- Selected features all statistically significant with p-value <0.05
+- sqft living15 coef – 0.2791
+- sqft living coef – 0.3956
+- distance from CBD coef - 0.3434
+- bathrooms coef – 0.0645
+- high grade rating coef– 0.4590
+- These Coef figures mean for unit increase in any one of these variables there was in increase in price by ~0.3 units.
 
 ### For More Information
 
