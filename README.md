@@ -32,16 +32,16 @@ This project uses the King County House Sales dataset, which can be found in  `k
 ### Exploratory Data Analysis
 
 **Key Features include:**
-Bathrooms
-Square Foot living space
-Grade
-Latitude
-Square Foot Above
-Square Foot Living 15 (neighbors)
+- Bathrooms
+- Square Foot living space
+- Grade
+- Latitude
+- Square Foot Above
+- Square Foot Living 15 (neighbors)
 
 **Notes:** 
-Zip code excluded as data-type is a string
-Latitude correlates with price more than Longitude
+- Zip code excluded as data-type is a string
+- Latitude correlates with price more than Longitude
 
 I then created price vs zip code graph to explore price distribution across zip codes and then plotted to a heatmap.
 Using these visualization I created  a new variable – **km_from_cbd**
@@ -59,15 +59,24 @@ Used KDE plot and joint plot to explore data
 - R^ 0.527, however multiple variables had negative R^
 - Residual graph was good
 
+![](./images/Model1_OLS.png)
+![](./images/model1_resid.png)
+
 **Model 2**
 - Used fewer variable in features (kept bathrooms, sqft living, sqft living15 and high grade)
 - R^ 0.413
 - Residual graph was good
 
+![](./images/Model2_OLS.png)
+![](./images/model2_resid.png)
+
 **Model 3**
 - Selected features included all variables with positive R^
 - R^ 0.524
 - Residual graph was good
+
+![](./images/Model3_OLS.png)
+![](./images/model3_resid.png)
 
 ### Conclusions
 
@@ -80,6 +89,8 @@ Used KDE plot and joint plot to explore data
 - high grade rating coef– 0.4590
 - These Coef figures mean for unit increase in any one of these variables there was in increase in price by ~0.3 units.
 
+![](./images/price_predict2.png)
+
 ### For More Information
 
 Please review the full analysis in [my Jupyter Notebook](http://localhost:8888/notebooks/Desktop/AcademyXI/ProjectTwo/dsc-phase-2-project/Project_Two/kc_house_price_regression_modelling.ipynb) or my [presentation pack](http://localhost:8888/files/Desktop/AcademyXI/ProjectTwo/dsc-phase-2-project/Project_Two/Regression%20Modelling%20Presentation.pdf).
@@ -89,9 +100,9 @@ For any additional questions, please contact **Nat Berryman** - nathaniel.berrym
 ### Repository Structure
 
 ```
-├── images
 ├── data
-├── regression modelling presentation.pdf
+├── images
 ├── kc_house_price_regression_modelling.ipynb
-└── README.md
+├── README.md
+└── regression modelling presentation.pdf
 ```
